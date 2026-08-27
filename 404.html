@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — Wyeth Roofing Limited</title>
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#C46F3B" />
+<meta name="theme-color" content="#0B000E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/tailwind.css" />
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; background: #0B000E; color: #F5F3EE; -webkit-font-smoothing: antialiased; }
+  h1 { font-family: 'Manrope', system-ui, sans-serif; letter-spacing: -0.03em; line-height: 1; }
+  .atmos {
+    background-color: #0B000E;
+    background-image:
+      radial-gradient(1100px 520px at 78% -8%, rgba(196,111,59,0.28), transparent 60%),
+      radial-gradient(760px 520px at 8% 12%, rgba(41,46,49,0.85), transparent 55%);
+  }
+</style>
+</head>
+
+<body class="font-body atmos min-h-screen flex flex-col">
+  <header class="mx-auto w-full max-w-[1180px] px-5 h-[84px] flex items-center">
+    <a href="/" aria-label="Wyeth Roofing Limited — home">
+      <img src="assets/wyeth-logo.png" alt="Wyeth Roofing Limited" width="4755" height="1970" class="h-[46px] w-auto" />
+    </a>
+  </header>
+
+  <main class="flex-1 grid place-items-center px-5 py-16 text-center">
+    <div class="max-w-lg">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase text-copper-soft">Error 404</p>
+      <h1 class="mt-4 text-6xl md:text-7xl font-extrabold">This page has slipped off the roof.</h1>
+      <p class="mt-5 text-warmwhite/70">
+        The page you're after doesn't exist or has moved. Let's get you back on solid ground.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/" class="inline-flex items-center justify-center gap-2 bg-copper text-warmwhite font-display font-bold text-sm rounded-sm px-6 py-4 hover:bg-copper-dark transition-transform duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-soft">
+          Back to home
+        </a>
+        <a href="/#contact" class="inline-flex items-center justify-center gap-2 border border-white/40 text-warmwhite font-display font-bold text-sm rounded-sm px-6 py-4 hover:border-white transition-transform duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-soft">
+          Contact us
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mx-auto w-full max-w-[1180px] px-5 py-8 text-xs font-mono tracking-wider text-warmwhite/40">
+    © <span id="year">2026</span> Wyeth Roofing Limited · Company no. 17328707
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,6 +1,9 @@
 # Local workflow artifacts
 temporary screenshots/
 
+# Tailwind standalone CLI binary (~40 MB) — download per machine, see README
+tailwindcss.exe
+
 # Reference material (not part of the deliverable)
 keayroofingservices.co.uk_.png
 
