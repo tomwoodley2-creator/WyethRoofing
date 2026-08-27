@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Wyeth Roofing">
+  <rect width="32" height="32" rx="6.5" fill="#0B000E"/>
+  <path d="M3 21 V15.5 L8.5 9.5 L12.5 13.8 L16 9 L19.5 13.8 L23.5 9.5 L29 15.5 V21 Z"
+        fill="#F5F3EE" stroke="#0B000E" stroke-width="1" stroke-linejoin="round"/>
+  <rect x="3" y="24" width="26" height="3" rx="1.2" fill="#C46F3B"/>
+</svg>
