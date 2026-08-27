@@ -883,8 +883,13 @@
         </dl>
       </div>
 
-      <form class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="mailto:info@wyethroofing.co.uk" method="post" enctype="text/plain">
+      <form id="quote-form" class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="https://api.web3forms.com/submit" method="POST">
         <div class="space-y-5">
+          <!-- Web3Forms access key for info@wyethroofing.co.uk. Manage / regenerate at https://web3forms.com -->
+          <input type="hidden" name="access_key" value="ff3f087b-60fc-43c2-8f42-6edd91223d5f" />
+          <input type="hidden" name="subject" value="New quote request — wyethroofing.co.uk" />
+          <input type="hidden" name="from_name" value="Wyeth Roofing website" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div>
             <label for="f-name" class="font-mono text-xs tracking-widest text-steel">NAME</label>
             <input id="f-name" name="name" type="text" required
@@ -913,6 +918,7 @@
             Send message
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
+          <p id="form-status" class="font-mono text-xs tracking-widest text-steel min-h-[1.1rem]" role="status" aria-live="polite"></p>
         </div>
       </form>
     </div>
@@ -1035,6 +1041,37 @@
       ty = e.clientY / window.innerHeight - 0.5;
       if (!raf) raf = requestAnimationFrame(loop);
     }, { passive: true });
+  })();
+
+  // Contact form — submit via Web3Forms without leaving the page.
+  (function () {
+    var form = document.getElementById('quote-form');
+    if (!form) return;
+    var status = document.getElementById('form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      status.style.color = '';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (r) { return r.json(); }).then(function (json) {
+        if (json.success) {
+          form.reset();
+          status.textContent = 'Thanks — your message is on its way. We’ll be in touch shortly.';
+          status.style.color = '#8FBF8B';
+        } else {
+          status.textContent = (json && json.message) || 'Something went wrong. Please email info@wyethroofing.co.uk.';
+          status.style.color = '#E0736B';
+        }
+      }).catch(function () {
+        status.textContent = 'Network error. Please email info@wyethroofing.co.uk or call us.';
+        status.style.color = '#E0736B';
+      }).finally(function () { btn.disabled = false; });
+    });
   })();
 </script>
 
