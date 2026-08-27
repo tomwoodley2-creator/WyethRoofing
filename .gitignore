@@ -1,0 +1,10 @@
+# Local workflow artifacts
+temporary screenshots/
+
+# Reference material (not part of the deliverable)
+keayroofingservices.co.uk_.png
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

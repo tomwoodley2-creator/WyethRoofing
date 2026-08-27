@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wyeth Roofing Limited — Roofing, done properly. Berkshire.</title>
+<meta name="description" content="Wyeth Roofing Limited — premium pitched, flat, heritage and leadwork roofing across Berkshire. Repairs, replacements and maintenance built above, built to last." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          obsidian: '#0B000E',
+          slate: '#292E31',
+          'slate-700': '#20252A',
+          warmwhite: '#F5F3EE',
+          steel: '#A9ADB0',
+          copper: '#C46F3B',
+          'copper-dark': '#A2542A',
+          'copper-soft': '#D68A5A',
+          safety: '#E8BB4A',
+        },
+        fontFamily: {
+          display: ['Manrope', 'system-ui', 'sans-serif'],
+          body: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+        },
+        letterSpacing: {
+          tightest: '-0.035em',
+        },
+        boxShadow: {
+          'card': '0 1px 1px rgba(11,0,14,0.04), 0 8px 18px -6px rgba(11,0,14,0.12), 0 24px 48px -20px rgba(41,46,49,0.18)',
+          'card-hover': '0 2px 4px rgba(11,0,14,0.06), 0 14px 28px -8px rgba(196,111,59,0.22), 0 40px 70px -30px rgba(41,46,49,0.28)',
+          'float': '0 20px 60px -18px rgba(11,0,14,0.45), 0 6px 16px -6px rgba(11,0,14,0.3)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --space-section: clamp(4.5rem, 9vw, 8rem);
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    background: #F5F3EE;
+    color: #292E31;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Manrope', system-ui, sans-serif; line-height: 1.05; }
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+  }
+
+  /* --- Signature: the pitch line. A hairline copper rule that rises to a roof apex. --- */
+  .pitch-rule {
+    display: block; width: 100%; height: 26px; color: #C46F3B;
+  }
+  .pitch-rule svg { display: block; width: 100%; height: 100%; }
+
+  /* Roof-slope clip on hero + feature imagery */
+  .clip-eave {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 42px), 0 100%);
+  }
+  @media (min-width: 768px) {
+    .clip-eave { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 90px), 0 100%); }
+  }
+
+  /* Grain / atmosphere for dark surfaces */
+  .grain::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    opacity: 0.5; mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .atmos {
+    background-color: #0B000E;
+    background-image:
+      radial-gradient(1100px 520px at 78% -8%, rgba(196,111,59,0.30), transparent 60%),
+      radial-gradient(760px 520px at 8% 12%, rgba(41,46,49,0.85), transparent 55%),
+      radial-gradient(900px 700px at 50% 120%, rgba(232,187,74,0.10), transparent 60%);
+  }
+
+  /* Hero backdrop — stylised slate roof (SVG or a swapped-in photo) */
+  .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-roofline {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; will-change: transform;
+  }
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(93deg, rgba(11,0,14,0.94) 0%, rgba(11,0,14,0.62) 34%, rgba(11,0,14,0.12) 62%, rgba(11,0,14,0) 80%),
+      linear-gradient(0deg, rgba(11,0,14,0.55) 0%, rgba(11,0,14,0) 26%);
+  }
+  .hero-scrim.grain::before { opacity: 0.22; }
+  @media (max-width: 767px) {
+    .hero-scrim {
+      background:
+        linear-gradient(180deg, rgba(11,0,14,0.62) 0%, rgba(11,0,14,0.45) 40%, rgba(11,0,14,0.82) 100%);
+    }
+  }
+
+  /* Checkatrade widgets. Curated fallbacks show until the live widgets mount on the approved domain.
+     The score fallback auto-hides once its widget renders; the reviews carousel is kept either way. */
+  .ca-score-widget iframe, .ca-reviews-widget iframe { max-width: 100%; border: 0; display: block; }
+  .ca-score:has(.ca-score-widget > :not(script)) .ca-score-fallback { display: none; }
+
+  /* Image treatment layer */
+  .img-treat { position: relative; overflow: hidden; }
+  .img-treat > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .img-treat::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(11,0,14,0.62), rgba(11,0,14,0.05) 55%, transparent);
+  }
+  .img-treat::before {
+    content: ""; position: absolute; inset: 0; z-index: 2;
+    background: #C46F3B; mix-blend-mode: multiply; opacity: 0.14;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.01em; padding: 0.95rem 1.5rem; border-radius: 2px;
+    transition: transform 0.35s var(--ease-spring), background-color 0.25s ease, box-shadow 0.3s ease, color 0.25s ease, border-color 0.25s ease;
+    will-change: transform;
+  }
+  .btn svg { transition: transform 0.35s var(--ease-spring); }
+  .btn:hover svg { transform: translateX(5px); }
+  .btn:active { transform: translateY(1px) scale(0.985); }
+  .btn:focus-visible { outline: 2px solid #E8BB4A; outline-offset: 3px; }
+
+  .btn-primary { background: #C46F3B; color: #F5F3EE; box-shadow: 0 10px 26px -10px rgba(196,111,59,0.6); }
+  .btn-primary:hover { background: #A2542A; transform: translateY(-2px); box-shadow: 0 16px 34px -10px rgba(196,111,59,0.7); }
+
+  .btn-light { background: #F5F3EE; color: #0B000E; box-shadow: 0 12px 30px -14px rgba(0,0,0,0.6); }
+  .btn-light:hover { background: #FFFFFF; transform: translateY(-2px); box-shadow: 0 18px 40px -16px rgba(0,0,0,0.65); }
+  .btn-light svg { color: #C46F3B; }
+  .btn--lead:hover svg { transform: none; }  /* icon leads the label — don't slide it */
+
+  .btn-ghost { background: transparent; color: #F5F3EE; border: 1px solid rgba(245,243,238,0.4); }
+  .btn-ghost:hover { border-color: #F5F3EE; transform: translateY(-2px); }
+
+  .btn-outline-dark { background: transparent; color: #292E31; border: 1px solid rgba(41,46,49,0.28); }
+  .btn-outline-dark:hover { border-color: #C46F3B; color: #C46F3B; transform: translateY(-2px); }
+
+  .link-arrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Space Mono', monospace; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.16em; color: #C46F3B; font-weight: 700;
+  }
+  .link-arrow svg { transition: transform 0.35s var(--ease-spring); }
+  .link-arrow:hover svg { transform: translateX(5px); }
+  .link-arrow:focus-visible { outline: 2px solid #C46F3B; outline-offset: 3px; }
+
+  /* Hero credentials bar */
+  .cred { position: relative; }
+  .cred + .cred::before {
+    content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1px;
+    background: rgba(245,243,238,0.1);
+  }
+  .cred:nth-child(3)::before { display: none; }
+  .cred:nth-child(n+3) { border-top: 1px solid rgba(245,243,238,0.1); }
+  @media (min-width: 1024px) {
+    .cred:nth-child(3)::before { display: block; }
+    .cred:nth-child(n+3) { border-top: 0; }
+  }
+  .cred-ic { width: 1.4rem; height: 1.4rem; color: #C46F3B; flex-shrink: 0; }
+  .cred-sub {
+    display: block; margin-top: 0.15rem;
+    font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(245,243,238,0.5);
+  }
+  .ca-score-widget:empty { display: none; }
+
+  /* Service cards */
+  .svc-ic {
+    display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
+    border-radius: 3px; background: rgba(196,111,59,0.1); color: #C46F3B;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  .svc-ic svg { width: 1.5rem; height: 1.5rem; }
+  .svc:hover .svc-ic { background: #C46F3B; color: #F5F3EE; }
+  .svc-more {
+    margin-top: 1.4rem; display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Space Mono', monospace; font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.16em; color: #A2542A; font-weight: 700;
+  }
+  .svc-more svg { transition: transform 0.35s var(--ease-spring); }
+  .svc:hover .svc-more svg { transform: translateX(5px); }
+
+  /* Nav links */
+  .navlink { position: relative; font-weight: 500; font-size: 0.9rem; color: rgba(245,243,238,0.82); transition: color 0.2s ease; }
+  .navlink::after {
+    content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%;
+    background: #C46F3B; transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease-spring);
+  }
+  .navlink:hover { color: #F5F3EE; }
+  .navlink:hover::after { transform: scaleX(1); }
+  .navlink:focus-visible { outline: 2px solid #E8BB4A; outline-offset: 4px; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.8s var(--ease-spring); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .carousel { scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+  .carousel::-webkit-scrollbar { display: none; }
+  .carousel > * { scroll-snap-align: start; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+
+<body class="font-body">
+
+<!-- ================= TOP BAR ================= -->
+<div class="bg-obsidian text-warmwhite/80 text-xs">
+  <div class="mx-auto max-w-[1180px] px-5 h-11 flex items-center justify-between gap-4">
+    <a href="tel:+447527783532" class="font-mono tracking-widest hover:text-copper transition-colors">
+      <span class="text-steel">CALL</span>&nbsp;&nbsp;07527 783532
+    </a>
+    <div class="hidden sm:flex items-center gap-6">
+      <span class="font-mono tracking-widest text-steel">MON–SAT · BERKSHIRE-WIDE</span>
+      <a href="#quote" class="font-mono tracking-widest text-copper-soft hover:text-copper transition-colors">GET A QUOTE →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur border-b border-white/5">
+  <nav class="mx-auto max-w-[1180px] px-5 h-[84px] lg:h-[104px] flex items-center justify-between">
+    <a href="#top" class="flex items-center group shrink-0" aria-label="Wyeth Roofing Limited — home">
+      <img src="assets/wyeth-logo.png" alt="Wyeth Roofing Limited" width="4755" height="1970"
+           class="h-[54px] lg:h-[72px] w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03]" />
+    </a>
+
+    <div class="hidden lg:flex items-center gap-7 xl:gap-9">
+      <a href="#services" class="navlink">Services</a>
+      <a href="#work" class="navlink">Projects</a>
+      <a href="#about" class="navlink">About</a>
+      <a href="#areas" class="navlink">Areas We Cover</a>
+      <a href="#contact" class="navlink">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a href="#quote" class="btn btn-primary hidden sm:inline-flex">
+        Get a quote
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button id="menu-toggle" class="lg:hidden h-11 w-11 grid place-items-center text-warmwhite rounded-sm border border-white/15 hover:border-copper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.8"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/8 bg-obsidian">
+    <nav class="mx-auto max-w-[1180px] px-5 py-4 flex flex-col" aria-label="Mobile">
+      <a href="#services" class="py-3 border-b border-white/6 font-display font-semibold text-warmwhite/85">Services</a>
+      <a href="#work" class="py-3 border-b border-white/6 font-display font-semibold text-warmwhite/85">Projects</a>
+      <a href="#about" class="py-3 border-b border-white/6 font-display font-semibold text-warmwhite/85">About</a>
+      <a href="#areas" class="py-3 border-b border-white/6 font-display font-semibold text-warmwhite/85">Areas We Cover</a>
+      <a href="#contact" class="py-3 font-display font-semibold text-warmwhite/85">Contact</a>
+      <a href="#quote" class="btn btn-primary mt-4 justify-center">Get a quote
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="relative bg-obsidian text-warmwhite overflow-hidden flex flex-col min-h-[86vh] lg:min-h-[90vh]">
+  <!-- Backdrop: stylised close-up slate roof. Swap the <svg> for a real project photo when ready —
+       an <img class="hero-roofline" …> drops straight into the same slot. -->
+  <div class="hero-bg" aria-hidden="true">
+    <svg class="hero-roofline" viewBox="0 0 1440 760" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="rf-sky" x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0" stop-color="#39414a"/><stop offset="0.6" stop-color="#252b32"/><stop offset="1" stop-color="#14181d"/>
+        </linearGradient>
+        <linearGradient id="rf-plane" x1="0.1" y1="-0.1" x2="0.85" y2="1">
+          <stop offset="0" stop-color="#3b434b"/><stop offset="0.4" stop-color="#242a30"/><stop offset="0.75" stop-color="#141920"/><stop offset="1" stop-color="#0b0f13"/>
+        </linearGradient>
+        <linearGradient id="rf-plane2" x1="0" y1="0" x2="0.5" y2="1">
+          <stop offset="0" stop-color="#2b323a"/><stop offset="1" stop-color="#0a0e11"/>
+        </linearGradient>
+        <linearGradient id="rf-chim" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#232a31"/><stop offset="0.6" stop-color="#161b21"/><stop offset="1" stop-color="#0e1216"/>
+        </linearGradient>
+        <linearGradient id="rf-win" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3a2a1a"/><stop offset="1" stop-color="#c47a3e"/>
+        </linearGradient>
+        <linearGradient id="rf-sheen" x1="0.2" y1="0" x2="0.9" y2="0.7">
+          <stop offset="0" stop-color="#d7e0e8" stop-opacity="0"/><stop offset="0.45" stop-color="#d7e0e8" stop-opacity="0.09"/><stop offset="1" stop-color="#d7e0e8" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="rf-fade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#0B000E" stop-opacity="0.92"/>
+          <stop offset="0.34" stop-color="#0B000E" stop-opacity="0.4"/>
+          <stop offset="0.62" stop-color="#0B000E" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="rf-vfade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0B000E" stop-opacity="0.4"/>
+          <stop offset="0.35" stop-color="#0B000E" stop-opacity="0"/>
+          <stop offset="0.85" stop-color="#0B000E" stop-opacity="0"/>
+          <stop offset="1" stop-color="#0B000E" stop-opacity="0.75"/>
+        </linearGradient>
+      </defs>
+
+      <rect width="1440" height="760" fill="url(#rf-sky)"/>
+      <ellipse cx="900" cy="30" rx="420" ry="120" fill="#434c56" opacity="0.4"/>
+      <ellipse cx="1300" cy="120" rx="360" ry="110" fill="#2c333b" opacity="0.55"/>
+      <ellipse cx="1120" cy="70" rx="300" ry="80" fill="#4b5560" opacity="0.3"/>
+
+      <!-- left gable slope (shadow side) -->
+      <path d="M690 240 L250 760 L575 760 L690 470 Z" fill="url(#rf-plane2)"/>
+
+      <!-- main roof plane -->
+      <path d="M690 240 L1440 108 L1440 760 L250 760 Z" fill="url(#rf-plane)"/>
+
+      <!-- tile courses: light leading edge + shadow line per course -->
+      <g stroke-linecap="round">
+        <g stroke="#4a545d" stroke-opacity="0.6" stroke-width="2.4">
+          <line x1="653" y1="286" x2="1440" y2="163"/>
+          <line x1="617" y1="329" x2="1440" y2="216"/>
+          <line x1="580" y1="371" x2="1440" y2="270"/>
+          <line x1="544" y1="414" x2="1440" y2="323"/>
+          <line x1="507" y1="456" x2="1440" y2="377"/>
+          <line x1="471" y1="499" x2="1440" y2="430"/>
+          <line x1="434" y1="541" x2="1440" y2="484"/>
+          <line x1="398" y1="584" x2="1440" y2="537"/>
+          <line x1="361" y1="626" x2="1440" y2="591"/>
+          <line x1="325" y1="669" x2="1440" y2="644"/>
+          <line x1="288" y1="711" x2="1440" y2="698"/>
+        </g>
+        <g stroke="#0a0e12" stroke-opacity="0.55" stroke-width="3">
+          <line x1="651" y1="292" x2="1440" y2="170"/>
+          <line x1="614" y1="335" x2="1440" y2="223"/>
+          <line x1="578" y1="377" x2="1440" y2="277"/>
+          <line x1="541" y1="420" x2="1440" y2="330"/>
+          <line x1="505" y1="462" x2="1440" y2="384"/>
+          <line x1="468" y1="505" x2="1440" y2="437"/>
+          <line x1="432" y1="547" x2="1440" y2="491"/>
+          <line x1="395" y1="590" x2="1440" y2="544"/>
+          <line x1="359" y1="632" x2="1440" y2="598"/>
+          <line x1="322" y1="675" x2="1440" y2="651"/>
+        </g>
+      </g>
+
+      <!-- perpendicular tile joints, staggered -->
+      <g stroke="#0a0e12" stroke-opacity="0.4" stroke-width="2">
+        <line x1="820" y1="243" x2="812" y2="290"/><line x1="980" y1="215" x2="975" y2="262"/><line x1="1140" y1="187" x2="1138" y2="234"/><line x1="1300" y1="159" x2="1301" y2="206"/>
+        <line x1="900" y1="286" x2="893" y2="337"/><line x1="1060" y1="258" x2="1056" y2="309"/><line x1="1220" y1="230" x2="1219" y2="281"/><line x1="1380" y1="202" x2="1382" y2="253"/>
+        <line x1="760" y1="380" x2="750" y2="437"/><line x1="960" y1="345" x2="954" y2="402"/><line x1="1160" y1="310" x2="1158" y2="367"/><line x1="1360" y1="275" x2="1362" y2="332"/>
+        <line x1="840" y1="480" x2="830" y2="545"/><line x1="1080" y1="438" x2="1074" y2="503"/><line x1="1320" y1="396" x2="1320" y2="461"/>
+      </g>
+
+      <path d="M690 240 L1440 108 L1440 760 L250 760 Z" fill="url(#rf-sheen)"/>
+
+      <!-- ridge cap + rake -->
+      <path d="M690 240 L1440 108" stroke="#535d66" stroke-width="9" stroke-linecap="round"/>
+      <path d="M690 237 L1440 105" stroke="#7c8892" stroke-width="2" stroke-opacity="0.55"/>
+      <path d="M690 240 L250 760" stroke="#3f4850" stroke-width="5"/>
+      <path d="M690 240 L252 758" stroke="#6a757f" stroke-width="1.6" stroke-opacity="0.4"/>
+
+      <!-- dormer: face sits on the plane, small gable roof on top -->
+      <path d="M892 452 L884 326 L1036 296 L1030 420 Z" fill="#14181d"/>
+      <path d="M876 330 L962 258 L1048 292 L1036 296 L884 326 Z" fill="#20262c"/>
+      <path d="M884 326 L962 258 L1048 292" fill="none" stroke="#5c666f" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M962 258 L962 246" stroke="#5c666f" stroke-width="3" stroke-linecap="round"/>
+      <rect x="934" y="336" width="66" height="78" rx="1" fill="url(#rf-win)" opacity="0.8"/>
+      <path d="M967 338 L965 412 M936 376 L998 369" stroke="#0e1216" stroke-width="2.4"/>
+      <path d="M930 332 L1004 322 L1000 420 L926 432 Z" fill="none" stroke="#3a2b1e" stroke-opacity="0.5" stroke-width="2"/>
+
+      <!-- chimney -->
+      <path d="M1176 205 L1176 46 L1284 46 L1284 205 Z" fill="url(#rf-chim)"/>
+      <rect x="1164" y="30" width="132" height="22" fill="#333b43"/>
+      <rect x="1164" y="30" width="132" height="4" fill="#5a646d"/>
+      <g stroke="#0b0f13" stroke-opacity="0.7" stroke-width="2">
+        <line x1="1176" y1="86" x2="1284" y2="86"/><line x1="1176" y1="126" x2="1284" y2="126"/><line x1="1176" y1="166" x2="1284" y2="166"/>
+        <line x1="1230" y1="52" x2="1230" y2="205"/>
+      </g>
+      <rect x="1184" y="8" width="20" height="24" fill="#0e1216"/>
+      <rect x="1214" y="8" width="20" height="24" fill="#0e1216"/>
+      <rect x="1244" y="8" width="20" height="24" fill="#0e1216"/>
+
+      <rect width="1440" height="760" fill="url(#rf-vfade)"/>
+      <rect width="1440" height="760" fill="url(#rf-fade)"/>
+    </svg>
+  </div>
+  <div class="hero-scrim grain" aria-hidden="true"></div>
+
+  <!-- Hero content -->
+  <div class="relative z-10 flex-1 flex items-center">
+    <div class="mx-auto w-full max-w-[1180px] px-5 pt-16 pb-14 md:pt-20">
+      <div class="max-w-xl">
+        <p class="eyebrow text-warmwhite/60 mb-7 flex items-center gap-3.5">
+          <span class="h-px w-10 bg-copper" aria-hidden="true"></span>Professional roofing · Berkshire
+        </p>
+
+        <h1 class="font-display font-extrabold tracking-tightest text-warmwhite text-[clamp(2.9rem,7vw,5.5rem)] leading-[0.97]">
+          Built above.<br />Built to last.
+        </h1>
+
+        <p class="mt-7 max-w-md text-[1.06rem] text-warmwhite/78">
+          High-quality roofing across Berkshire, backed by more than 30 years of combined
+          experience — and a written quote on every job.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-3.5">
+          <a href="#quote" class="btn btn-light btn--lead">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M1.5 6h13M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Get a free quote
+          </a>
+          <a href="tel:+447527783532" class="btn btn-ghost btn--lead">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 2.5 3 3c-1 3 3 9 6.5 10.5l.5-2.5-2.5-1.5-1 1C4.5 9 4 7.5 4 6l1.5-.5-.5-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Call us today
+          </a>
+        </div>
+
+        <!-- Checkatrade — live score widget mounts here on the approved domain; link is the fallback. -->
+        <div class="ca-score mt-8">
+          <span class="ca-score-widget"><script src="https://www.checkatrade.com/static/js/reviews-score-widget.js" data-company-id="1135999"></script></span>
+          <a href="https://www.checkatrade.com/trades/WyethRoofing" target="_blank" rel="noopener"
+             class="ca-score-fallback group inline-flex items-center gap-3.5 rounded-sm border border-white/15 bg-white/[0.05] backdrop-blur-md px-4 py-3 hover:border-copper/60 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety">
+            <span class="text-safety text-base tracking-tight" aria-hidden="true">★★★★★</span>
+            <span class="text-sm text-warmwhite/75 leading-tight">
+              <span class="font-display font-bold text-warmwhite">9.8&thinsp;/&thinsp;10</span> on Checkatrade
+              <span class="block font-mono text-[0.6rem] tracking-[0.14em] uppercase text-warmwhite/45 mt-0.5">Verified customer reviews</span>
+            </span>
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" class="text-copper-soft transition-transform duration-300 ease-out group-hover:translate-x-1"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Credentials bar -->
+  <div class="relative z-10 border-t border-white/10 bg-obsidian/72 backdrop-blur-md">
+    <ul class="mx-auto max-w-[1180px] px-5 grid grid-cols-2 lg:grid-cols-4">
+      <li class="cred flex items-center gap-3.5 py-5 lg:py-6 lg:px-7 lg:first:pl-0">
+        <svg class="cred-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5l-8-3Z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        <span>
+          <span class="block font-display font-bold text-[0.95rem] tracking-tight text-warmwhite">30+ years</span>
+          <span class="cred-sub">Combined experience</span>
+        </span>
+      </li>
+      <li class="cred flex items-center gap-3.5 py-5 lg:py-6 lg:px-7">
+        <svg class="cred-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>
+        <span>
+          <span class="block font-display font-bold text-[0.95rem] tracking-tight text-warmwhite">Free quotes</span>
+          <span class="cred-sub">No obligation, in writing</span>
+        </span>
+      </li>
+      <li class="cred flex items-center gap-3.5 py-5 lg:py-6 lg:px-7">
+        <svg class="cred-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5l-8-3Z"/></svg>
+        <span>
+          <span class="block font-display font-bold text-[0.95rem] tracking-tight text-warmwhite">Fully insured</span>
+          <span class="cred-sub">&amp; written guarantees</span>
+        </span>
+      </li>
+      <li class="cred flex items-center gap-3.5 py-5 lg:py-6 lg:px-7">
+        <svg class="cred-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span>
+          <span class="block font-display font-bold text-[0.95rem] tracking-tight text-warmwhite">Berkshire-wide</span>
+          <span class="cred-sub">Emergency call-outs</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <span class="pitch-rule relative z-10 -mb-px" aria-hidden="true">
+    <svg viewBox="0 0 1200 26" preserveAspectRatio="none"><path d="M0 25 L600 3 L1200 25" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  </span>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="bg-warmwhite">
+  <div class="mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <div class="max-w-2xl">
+      <p class="eyebrow text-copper reveal">What we do</p>
+      <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2rem,4.6vw,3.1rem)] reveal">
+        Every kind of roof, held to one standard.
+      </h2>
+      <p class="mt-5 text-slate/75 reveal">
+        From a full re-roof to a single slipped slate — here's the work we take on across Berkshire.
+      </p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13 14 4l11 9"/><path d="M6 13v11h16V13"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Pitched roofing</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          New pitched roofs in natural slate and tile, plus repairs to failed sections — left square, watertight and true to the line of the house.
+        </p>
+        <span class="svc-more">Installation &amp; repair<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14 14 5l11 9"/><path d="M14 25v-9"/><path d="M10 20l4-4 4 4"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Roof replacement</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          A full strip and re-cover: new battens, breathable membrane and your choice of covering, with scaffold, waste and building-control sign-off handled.
+        </p>
+        <span class="svc-more">Full re-roofs<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10q3-3.4 6 0t6 0 6 0 6 0"/><path d="M3 17q3-3.4 6 0t6 0 6 0 6 0"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Slate &amp; tiled roofing</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          Natural slate, clay and concrete tile — new roofs and like-for-like repairs, matched to the age and character of the building.
+        </p>
+        <span class="svc-more">Installation &amp; repair<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12q2-3 4 0"/><path d="M4 16h20"/><path d="M4 16v-4M24 16v-4"/><path d="M6 22h16"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Flat &amp; felt roofing</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          Felt roofing installed and repaired on extensions, garages and outbuildings — hard-wearing systems built to shed water and last.
+        </p>
+        <span class="svc-more">Installation &amp; repair<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h6v-5h6v-5h6V7"/><path d="M4 25h20"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Leadwork</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          Hand-formed lead to flashings, valleys, soakers and chimney stacks — the detailing that keeps water out where the roof meets a wall.
+        </p>
+        <span class="svc-more">Installation &amp; repair<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a href="#quote" class="svc reveal group bg-white shadow-card rounded-sm p-7 md:p-8 block transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-copper">
+        <span class="svc-ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="19" cy="9" r="4.5"/><path d="M15.8 12.2 6 22l-2-2 9.8-9.8"/><path d="M14 4.5 17 7"/></svg>
+        </span>
+        <h3 class="mt-5 font-display font-bold text-xl tracking-tight">Roofing repairs &amp; emergencies</h3>
+        <p class="mt-2.5 text-sm text-slate/75 leading-relaxed">
+          Leaks, slipped tiles and storm damage put right fast — with an emergency call-out for when the weather won't wait.
+        </p>
+        <span class="svc-more">Same-week &amp; urgent<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+
+    <!-- Secondary services -->
+    <div class="mt-12 border-t border-slate/15 pt-9 reveal">
+      <p class="font-mono text-xs tracking-[0.2em] uppercase text-steel">Also on the books</p>
+      <ul class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5">
+        <li class="flex gap-3">
+          <span class="mt-[7px] h-1.5 w-1.5 bg-copper rotate-45 shrink-0" aria-hidden="true"></span>
+          <span><span class="block font-display font-semibold text-sm tracking-tight">Dry ridge systems</span><span class="text-xs text-slate/60">Installed &amp; repaired</span></span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-[7px] h-1.5 w-1.5 bg-copper rotate-45 shrink-0" aria-hidden="true"></span>
+          <span><span class="block font-display font-semibold text-sm tracking-tight">Dry verge systems</span><span class="text-xs text-slate/60">Installed &amp; repaired</span></span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-[7px] h-1.5 w-1.5 bg-copper rotate-45 shrink-0" aria-hidden="true"></span>
+          <span><span class="block font-display font-semibold text-sm tracking-tight">Ridge tiles</span><span class="text-xs text-slate/60">Re-bedding, repointing &amp; replacement</span></span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-[7px] h-1.5 w-1.5 bg-copper rotate-45 shrink-0" aria-hidden="true"></span>
+          <span><span class="block font-display font-semibold text-sm tracking-tight">Moss removal &amp; roof cleaning</span><span class="text-xs text-slate/60">Hand-scraped, gutters cleared</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="mt-10 text-sm text-slate/70 reveal">
+      Every job comes with a free written quote.
+      <a href="#quote" class="text-copper font-semibold hover:underline">Get yours →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= ABOUT / OVERVIEW ================= -->
+<section id="about" class="atmos grain text-warmwhite relative overflow-hidden">
+  <div class="relative z-10 mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <div class="grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-start">
+      <div class="reveal">
+        <p class="eyebrow text-copper-soft">About Wyeth Roofing</p>
+        <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2rem,4.6vw,3.1rem)]">
+          Built above.<br />Built to last.
+        </h2>
+
+        <div class="mt-9 flex items-baseline gap-4">
+          <span class="font-display font-extrabold text-[clamp(3rem,7vw,4.75rem)] leading-none text-copper">30<span class="text-safety">+</span></span>
+          <span class="text-sm text-warmwhite/70 leading-snug max-w-[13rem]">
+            years of combined roofing experience across the leadership team.
+          </span>
+        </div>
+        <p class="mt-4 font-mono text-xs tracking-[0.18em] uppercase text-steel">
+          Jack Wyeth &amp; Jack Jenden — Directors
+        </p>
+      </div>
+
+      <div class="reveal space-y-5 text-warmwhite/78">
+        <p>
+          Wyeth Roofing was established in 2023 by Jack Wyeth, who saw the need for a roofing
+          company that put quality workmanship, reliability and customer satisfaction at the
+          heart of its service.
+        </p>
+        <p>
+          Since then the business has grown steadily, building a strong reputation for
+          dependable roofing solutions and consistently high standards on every project.
+        </p>
+        <p>
+          In 2026, Jack Jenden joined Wyeth Roofing as a Director, bringing further experience
+          and expertise to the business. Together, Jack Wyeth and Jack Jenden form the
+          leadership team — more than 30 years of combined industry experience and a shared
+          commitment to a professional, straightforward and reliable service.
+        </p>
+        <a href="#quote" class="btn btn-primary mt-2">
+          Book a survey
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Our approach -->
+    <div class="mt-16 lg:mt-24 pt-12 border-t border-white/10">
+      <p class="eyebrow text-copper-soft reveal">Our approach</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-8 md:gap-10">
+        <div class="reveal">
+          <span class="h-1.5 w-1.5 bg-copper rotate-45 block" aria-hidden="true"></span>
+          <h3 class="mt-4 font-display font-bold text-lg tracking-tight">Straightforward, honest advice</h3>
+          <p class="mt-3 text-sm text-warmwhite/72 leading-relaxed">
+            Every roof is different, so we take the time to assess each one properly and
+            recommend the solution that genuinely suits your property — clear guidance, no
+            upselling.
+          </p>
+        </div>
+        <div class="reveal">
+          <span class="h-1.5 w-1.5 bg-copper rotate-45 block" aria-hidden="true"></span>
+          <h3 class="mt-4 font-display font-bold text-lg tracking-tight">Quality without compromise</h3>
+          <p class="mt-3 text-sm text-warmwhite/72 leading-relaxed">
+            High standards of workmanship on every project, from the first assessment through
+            to the final ridge tile and the tidy-up afterwards.
+          </p>
+        </div>
+        <div class="reveal">
+          <span class="h-1.5 w-1.5 bg-copper rotate-45 block" aria-hidden="true"></span>
+          <h3 class="mt-4 font-display font-bold text-lg tracking-tight">Professional and dependable</h3>
+          <p class="mt-3 text-sm text-warmwhite/72 leading-relaxed">
+            Courteous, punctual and reliable. We keep you informed throughout and are always
+            happy to explain what's being done, why it's needed and how it benefits your home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="pitch-rule relative z-10" aria-hidden="true">
+    <svg viewBox="0 0 1200 26" preserveAspectRatio="none"><path d="M0 25 L600 3 L1200 25" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  </span>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="bg-slate text-warmwhite relative grain overflow-hidden">
+  <div class="ca-reviews relative z-10 mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow text-copper-soft reveal">Reviews from our customers</p>
+        <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2rem,4.4vw,2.9rem)] reveal">
+          Excellent from start to finish.
+        </h2>
+      </div>
+      <div class="ca-reviews-fallback flex gap-2.5 reveal">
+        <button class="car-btn h-11 w-11 grid place-items-center rounded-sm border border-white/20 hover:border-copper hover:text-copper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety" data-dir="-1" aria-label="Previous review">
+          <svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M15 7H1M7 1 1 7l6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="car-btn h-11 w-11 grid place-items-center rounded-sm border border-white/20 hover:border-copper hover:text-copper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety" data-dir="1" aria-label="Next review">
+          <svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M1 7h14M9 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Checkatrade reviews widget. Renders on the approved live domain; the carousel below is the fallback. -->
+    <div class="ca-reviews-widget">
+      <script>window._checkatradeConfig = { "companyId": 1135999, "uniqueName": "WyethRoofing", "theme": "white" };</script>
+      <script src="https://www.checkatrade.com/static/js/widget.js"></script>
+    </div>
+
+    <div class="ca-reviews-fallback carousel mt-11 flex gap-5 overflow-x-auto pb-2 reveal" id="reviews">
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
+        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
+          "Re-roofed the whole house in four days. Scaffold up when they said, gone when they
+          said, and the drive was swept every evening. Faultless."
+        </blockquote>
+        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">JOHN D. · WOKINGHAM</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
+        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
+          "Chimney was leaking for years and two other firms couldn't sort it. Wyeth found the
+          real problem in ten minutes and fixed it properly."
+        </blockquote>
+        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">S. PATEL · BRACKNELL</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
+        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
+          "Listed cottage, so we were nervous. The lead detailing is beautiful and the
+          conservation officer had no comments at all. Highly recommend."
+        </blockquote>
+        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">M. ELLIS · SONNING</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
+        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
+          "Quoted quickly, turned up on time, tidied up after themselves. The flat roof on our
+          unit hasn't leaked once since. Would use again."
+        </blockquote>
+        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">R. CLARKE · READING</figcaption>
+      </figure>
+    </div>
+
+    <a href="https://www.checkatrade.com/trades/wyethroofing" target="_blank" rel="noopener" class="link-arrow mt-8 !text-copper-soft">
+      Read every review on Checkatrade
+      <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ================= AREAS WE COVER ================= -->
+<section id="areas" class="bg-warmwhite">
+  <div class="mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <p class="eyebrow text-copper reveal">Our five-star rated roofing teams cover</p>
+    <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2rem,4.4vw,2.9rem)] max-w-xl reveal">
+      All of Berkshire — and the villages the postcode maps forget.
+    </h2>
+
+    <ul class="mt-11 flex flex-wrap gap-3 reveal">
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Bracknell</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Wokingham</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Reading</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Maidenhead</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Windsor</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Ascot</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Binfield</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Crowthorne</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Sandhurst</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Twyford</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Newbury</span></li>
+      <li><span class="inline-flex items-center gap-2.5 bg-white shadow-card rounded-sm px-4 py-3 font-display font-semibold text-sm tracking-tight"><span class="h-1.5 w-1.5 bg-copper rotate-45"></span>Thatcham</span></li>
+    </ul>
+
+    <p class="mt-8 text-slate/70 text-sm reveal">
+      Based in Binfield, Bracknell — if you're in Berkshire, you're in our patch.
+      <a href="#contact" class="text-copper font-semibold hover:underline">Check your postcode →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= OUR WORK ================= -->
+<section id="work" class="atmos grain text-warmwhite relative overflow-hidden">
+  <div class="relative z-10 mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow text-copper-soft reveal">Our work</p>
+        <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2rem,4.4vw,2.9rem)] reveal">
+          Recent Berkshire projects.
+        </h2>
+      </div>
+      <a href="#quote" class="link-arrow !text-copper-soft reveal">
+        Start your project
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <article class="reveal group bg-obsidian/50 border border-white/8 rounded-sm overflow-hidden">
+        <div class="img-treat aspect-[4/3]">
+          <img src="https://placehold.co/640x480/292E31/F5F3EE?text=Full+Re-Roof" alt="A detached house mid-way through a complete re-roof with scaffold in place" />
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[0.7rem] tracking-widest text-steel">SLATE / LEADWORK / 2025</span>
+          <h3 class="mt-2 font-display font-bold text-lg tracking-tight">Complete roof replacement package</h3>
+          <p class="mt-2 text-sm text-warmwhite/70">Residential development, Warfield — 6 units stripped and re-covered in natural slate over eight weeks.</p>
+          <a href="#contact" class="link-arrow mt-5 !text-copper-soft">
+            View case study
+            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="reveal group bg-obsidian/50 border border-white/8 rounded-sm overflow-hidden">
+        <div class="img-treat aspect-[4/3]">
+          <img src="https://placehold.co/640x480/20252A/F5F3EE?text=Dark+Tiling" alt="A house with new dark grey interlocking tiles and crisp ridge lines" />
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[0.7rem] tracking-widest text-steel">TILE / VENTED / 2025</span>
+          <h3 class="mt-2 font-display font-bold text-lg tracking-tight">Enhancing a property with dark tiling</h3>
+          <p class="mt-2 text-sm text-warmwhite/70">Private home, Ascot — a full recover in graphite tiles with new dry-verge and ridge systems.</p>
+          <a href="#contact" class="link-arrow mt-5 !text-copper-soft">
+            View case study
+            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="reveal group bg-obsidian/50 border border-white/8 rounded-sm overflow-hidden">
+        <div class="img-treat aspect-[4/3]">
+          <img src="https://placehold.co/640x480/292E31/F5F3EE?text=Vent+System" alt="Close-up of new tile vents and a breathable membrane at the eaves" />
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[0.7rem] tracking-widest text-steel">SLATE / VENTED / 2024</span>
+          <h3 class="mt-2 font-display font-bold text-lg tracking-tight">New roof with integrated ventilation</h3>
+          <p class="mt-2 text-sm text-warmwhite/70">1930s semi, Reading — condensation solved with a full strip, breathable membrane and ridge ventilation.</p>
+          <a href="#contact" class="link-arrow mt-5 !text-copper-soft">
+            View case study
+            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA + CONTACT ================= -->
+<section id="quote" class="bg-copper text-obsidian relative overflow-hidden">
+  <span class="pitch-rule !text-obsidian/25 rotate-180" aria-hidden="true">
+    <svg viewBox="0 0 1200 26" preserveAspectRatio="none"><path d="M0 25 L600 3 L1200 25" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  </span>
+  <div class="mx-auto max-w-[1180px] px-5" style="padding-top: var(--space-section); padding-bottom: var(--space-section);">
+    <div id="contact" class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div class="reveal">
+        <p class="eyebrow">Got a roofing project in mind?</p>
+        <h2 class="mt-4 font-display font-extrabold tracking-tightest text-[clamp(2.1rem,5vw,3.4rem)]">
+          Let's talk about it.
+        </h2>
+        <p class="mt-5 max-w-md text-obsidian/75">
+          Tell us what's going on with your roof. We'll come out, take a look, and send a
+          written quote — usually within a couple of days.
+        </p>
+
+        <dl class="mt-9 space-y-4 font-display">
+          <div class="flex gap-4">
+            <dt class="font-mono text-xs tracking-widest pt-1 text-obsidian/55 w-16 shrink-0">CALL</dt>
+            <dd><a href="tel:+447527783532" class="font-bold text-xl hover:underline">07527 783532</a></dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="font-mono text-xs tracking-widest pt-1 text-obsidian/55 w-16 shrink-0">EMAIL</dt>
+            <dd><a href="mailto:info@wyethroofing.co.uk" class="font-bold text-xl hover:underline break-all">info@wyethroofing.co.uk</a></dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="font-mono text-xs tracking-widest pt-1 text-obsidian/55 w-16 shrink-0">VISIT</dt>
+            <dd class="font-semibold text-lg leading-snug">52 Webster Cl, Binfield,<br />Bracknell RG12 8HJ</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="mailto:info@wyethroofing.co.uk" method="post" enctype="text/plain">
+        <div class="space-y-5">
+          <div>
+            <label for="f-name" class="font-mono text-xs tracking-widest text-steel">NAME</label>
+            <input id="f-name" name="name" type="text" required
+              class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+              placeholder="Your name" />
+          </div>
+          <div>
+            <label for="f-email" class="font-mono text-xs tracking-widest text-steel">EMAIL</label>
+            <input id="f-email" name="email" type="email" required
+              class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+              placeholder="Email address" />
+          </div>
+          <div>
+            <label for="f-phone" class="font-mono text-xs tracking-widest text-steel">PHONE</label>
+            <input id="f-phone" name="phone" type="tel"
+              class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+              placeholder="Optional" />
+          </div>
+          <div>
+            <label for="f-msg" class="font-mono text-xs tracking-widest text-steel">WHAT DO YOU NEED HELP WITH?</label>
+            <textarea id="f-msg" name="message" rows="4" required
+              class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition resize-y"
+              placeholder="Tell us about your roof, your address, and the best time to visit…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full justify-center">
+            Send message
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-obsidian text-warmwhite/70">
+  <div class="mx-auto max-w-[1180px] px-5 py-14">
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
+      <div>
+        <img src="assets/wyeth-logo.png" alt="Wyeth Roofing Limited" width="4755" height="1970" class="h-[64px] w-auto" />
+        <p class="mt-5 font-mono text-xs tracking-[0.2em] text-copper-soft">BUILT ABOVE. BUILT TO LAST.</p>
+        <p class="mt-4 text-sm max-w-xs">
+          Premium pitched, flat, heritage and leadwork roofing across Berkshire.
+        </p>
+      </div>
+
+      <nav aria-label="Footer">
+        <p class="font-mono text-xs tracking-widest text-steel">SITE</p>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="#services" class="hover:text-copper transition-colors">Services</a></li>
+          <li><a href="#work" class="hover:text-copper transition-colors">Projects</a></li>
+          <li><a href="#about" class="hover:text-copper transition-colors">About</a></li>
+          <li><a href="#areas" class="hover:text-copper transition-colors">Areas we cover</a></li>
+          <li><a href="#contact" class="hover:text-copper transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="font-mono text-xs tracking-widest text-steel">CONTACT</p>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="tel:+447527783532" class="hover:text-copper transition-colors">07527 783532</a></li>
+          <li><a href="mailto:info@wyethroofing.co.uk" class="hover:text-copper transition-colors">info@wyethroofing.co.uk</a></li>
+          <li class="text-warmwhite/55">52 Webster Cl, Binfield,<br />Bracknell RG12 8HJ</li>
+          <li><a href="https://www.checkatrade.com/trades/wyethroofing" target="_blank" rel="noopener" class="hover:text-copper transition-colors">Checkatrade profile →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-warmwhite/45 font-mono tracking-wider">
+      <span>© <span id="year">2026</span> WYETH ROOFING LIMITED</span>
+      <span>BINFIELD · BRACKNELL · BERKSHIRE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  (function () {
+    var t = document.getElementById('menu-toggle');
+    var m = document.getElementById('mobile-menu');
+    if (!t || !m) return;
+    t.addEventListener('click', function () {
+      var open = m.classList.toggle('hidden') === false;
+      t.setAttribute('aria-expanded', String(open));
+      t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    m.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        m.classList.add('hidden');
+        t.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // Reviews carousel
+  (function () {
+    var track = document.getElementById('reviews');
+    if (!track) return;
+    document.querySelectorAll('.car-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dir = parseInt(btn.getAttribute('data-dir'), 10);
+        var card = track.firstElementChild;
+        var step = card ? card.getBoundingClientRect().width + 20 : 400;
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
+      });
+    });
+  })();
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+    // Safety net (headless capture / no-scroll contexts): reveal everything after a beat.
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 2500);
+  })();
+
+  // Hero roofline — a touch of mouse parallax (transform only), disabled for reduced motion.
+  (function () {
+    var roofline = document.querySelector('.hero-roofline');
+    if (!roofline) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+    function loop() {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      roofline.style.transform = 'translate3d(' + (cx * -20).toFixed(2) + 'px,' + (cy * -12).toFixed(2) + 'px,0) scale(1.06)';
+      if (Math.abs(tx - cx) > 0.0005 || Math.abs(ty - cy) > 0.0005) {
+        raf = requestAnimationFrame(loop);
+      } else { raf = 0; }
+    }
+    window.addEventListener('pointermove', function (e) {
+      tx = e.clientX / window.innerWidth - 0.5;
+      ty = e.clientY / window.innerHeight - 0.5;
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
