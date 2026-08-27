@@ -7,6 +7,16 @@ tailwindcss.exe
 # Reference material (not part of the deliverable)
 keayroofingservices.co.uk_.png
 
+# Service-card design exports (~24 MB of source PNGs). The cropped, optimised
+# versions actually used by the site live in assets/services/*.jpg and ARE tracked.
+assets/What we do/
+Brand/flat & felt roofing.png
+Brand/leadwork.png
+Brand/pitched roofing.png
+Brand/roof replacement.png
+Brand/roofing and emergency repairs.png
+Brand/slate and tiled roofing.png
+
 # OS cruft
 .DS_Store
 Thumbs.db
