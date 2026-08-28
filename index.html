@@ -978,37 +978,87 @@
         </dl>
       </div>
 
-      <form id="quote-form" class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="https://api.web3forms.com/submit" method="POST">
+      <form id="quote-form" class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
         <div class="space-y-5">
           <!-- Web3Forms access key for info@wyethroofing.co.uk. Manage / regenerate at https://web3forms.com -->
           <input type="hidden" name="access_key" value="ff3f087b-60fc-43c2-8f42-6edd91223d5f" />
-          <input type="hidden" name="subject" value="New quote request — wyethroofing.co.uk" />
           <input type="hidden" name="from_name" value="Wyeth Roofing website" />
+          <input type="hidden" name="subject" value="Website enquiry — wyethroofing.co.uk" />
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <div>
-            <label for="f-name" class="font-mono text-xs tracking-widest text-steel">NAME</label>
-            <input id="f-name" name="name" type="text" required autocomplete="name"
-              class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
-              placeholder="Your name" />
+
+          <p class="font-mono text-[0.7rem] tracking-widest text-steel/70">Fields marked <span class="text-copper">*</span> are required</p>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="f-first" class="font-mono text-xs tracking-widest text-steel">First name <span class="text-copper" aria-hidden="true">*</span></label>
+              <input id="f-first" name="First Name" type="text" required autocomplete="given-name"
+                class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+                placeholder="First name" />
+            </div>
+            <div>
+              <label for="f-last" class="font-mono text-xs tracking-widest text-steel">Last name <span class="text-copper" aria-hidden="true">*</span></label>
+              <input id="f-last" name="Last Name" type="text" required autocomplete="family-name"
+                class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+                placeholder="Last name" />
+            </div>
           </div>
+
           <div>
-            <label for="f-email" class="font-mono text-xs tracking-widest text-steel">EMAIL</label>
-            <input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email"
+            <label for="f-phone" class="font-mono text-xs tracking-widest text-steel">Contact number <span class="text-copper" aria-hidden="true">*</span></label>
+            <input id="f-phone" name="Contact Number" type="tel" required autocomplete="tel" inputmode="tel"
               class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
-              placeholder="Email address" />
+              placeholder="e.g. 07xxx xxxxxx" />
           </div>
+
           <div>
-            <label for="f-phone" class="font-mono text-xs tracking-widest text-steel">PHONE</label>
-            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
+            <label for="f-email" class="font-mono text-xs tracking-widest text-steel">Email address <span class="text-copper" aria-hidden="true">*</span></label>
+            <input id="f-email" name="Email Address" type="email" required autocomplete="email" inputmode="email"
               class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
-              placeholder="Optional" />
+              placeholder="you@example.com" />
           </div>
+
           <div>
-            <label for="f-msg" class="font-mono text-xs tracking-widest text-steel">WHAT DO YOU NEED HELP WITH?</label>
-            <textarea id="f-msg" name="message" rows="4" required autocomplete="off"
+            <label for="f-subject" class="font-mono text-xs tracking-widest text-steel">Subject (please select) <span class="text-copper" aria-hidden="true">*</span></label>
+            <select id="f-subject" name="Enquiry Type" required
+              class="mt-2 w-full appearance-none bg-slate-700 border border-white/12 rounded-sm px-4 py-3 pr-11 text-warmwhite focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition"
+              style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23A9ADB0' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 1rem center;">
+              <option value="" disabled selected>Please select…</option>
+              <option>Dry Ridge Installation</option>
+              <option>Dry Ridge Repair</option>
+              <option>Dry Verge Installation</option>
+              <option>Dry Verge Repair</option>
+              <option>Emergency Roofing Service</option>
+              <option>Leadworks Installation</option>
+              <option>Leadworks Repair</option>
+              <option>Moss Removal</option>
+              <option>Pitched Roofing Installation</option>
+              <option>Pitched Roofing Repair</option>
+              <option>Ridged Tiles Installation</option>
+              <option>Ridged Tiles Repair</option>
+              <option>Roof Replacement</option>
+              <option>Roofing Repairs</option>
+              <option>Slate Roof Installation</option>
+              <option>Slate Roofer Repair</option>
+              <option>Slate / Tiled Roofing Installation</option>
+              <option>Felt Roofing Installation</option>
+              <option>Felt Roofing Repair</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="f-msg" class="font-mono text-xs tracking-widest text-steel">Message <span class="text-steel/55">(optional)</span></label>
+            <textarea id="f-msg" name="Message" rows="4" autocomplete="off"
               class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition resize-y"
               placeholder="Tell us about your roof, your address, and the best time to visit…"></textarea>
           </div>
+
+          <div>
+            <label for="f-files" class="font-mono text-xs tracking-widest text-steel">Attach photos <span class="text-steel/55">(optional)</span></label>
+            <input id="f-files" name="attachment" type="file" accept="image/*" multiple
+              class="mt-2 w-full text-sm text-steel file:mr-3 file:cursor-pointer file:rounded-sm file:border-0 file:bg-copper file:px-4 file:py-2.5 file:font-mono file:text-xs file:font-bold file:uppercase file:tracking-widest file:text-warmwhite hover:file:bg-copper-dark" />
+            <p class="mt-1.5 font-mono text-[0.65rem] tracking-wide text-steel/60">JPG or PNG · up to 5 MB in total</p>
+          </div>
+
           <button type="submit" class="btn btn-primary w-full justify-center">
             Send message
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1157,10 +1207,14 @@
       status.textContent = 'Sending…';
       status.style.color = '';
       btn.disabled = true;
+      var data = new FormData(form);
+      // Put the chosen service in the notification email's subject line.
+      var picked = data.get('Enquiry Type');
+      if (picked) data.set('subject', 'Website enquiry — ' + picked);
       fetch(form.action, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        body: data
       }).then(function (r) { return r.json(); }).then(function (json) {
         if (json.success) {
           form.reset();
