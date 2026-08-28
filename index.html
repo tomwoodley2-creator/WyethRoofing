@@ -313,7 +313,7 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <a href="#quote" class="btn btn-primary hidden sm:inline-flex">
+      <a href="#quote" class="btn btn-primary !hidden sm:!inline-flex">
         Get a quote
         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -978,7 +978,7 @@
         </dl>
       </div>
 
-      <form id="quote-form" class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+      <form id="quote-form" class="reveal bg-obsidian text-warmwhite rounded-sm p-7 md:p-9 shadow-float" action="https://api.web3forms.com/submit" method="POST">
         <div class="space-y-5">
           <!-- Web3Forms access key for info@wyethroofing.co.uk. Manage / regenerate at https://web3forms.com -->
           <input type="hidden" name="access_key" value="ff3f087b-60fc-43c2-8f42-6edd91223d5f" />
@@ -1058,13 +1058,6 @@
             <textarea id="f-msg" name="Message" rows="4" autocomplete="off"
               class="mt-2 w-full bg-white/[0.04] border border-white/12 rounded-sm px-4 py-3 text-warmwhite placeholder:text-steel/60 focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/40 transition resize-y"
               placeholder="Tell us about your roof, your address, and the best time to visit…"></textarea>
-          </div>
-
-          <div>
-            <label for="f-files" class="font-mono text-xs tracking-widest text-steel">Attach photos <span class="text-steel/55">(optional)</span></label>
-            <input id="f-files" name="attachment" type="file" accept="image/*" multiple
-              class="mt-2 w-full text-sm text-steel file:mr-3 file:cursor-pointer file:rounded-sm file:border-0 file:bg-copper file:px-4 file:py-2.5 file:font-mono file:text-xs file:font-bold file:uppercase file:tracking-widest file:text-warmwhite hover:file:bg-copper-dark" />
-            <p class="mt-1.5 font-mono text-[0.65rem] tracking-wide text-steel/60">JPG or PNG · up to 5 MB in total</p>
           </div>
 
           <button type="submit" class="btn btn-primary w-full justify-center">
