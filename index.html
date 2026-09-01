@@ -110,9 +110,9 @@
     }
   }
 
-  /* Checkatrade widgets. Curated fallbacks show until the live widgets mount on the approved domain.
-     The score fallback auto-hides once its widget renders; the reviews carousel is kept either way. */
-  .ca-score-widget iframe, .ca-reviews-widget iframe { max-width: 100%; border: 0; display: block; }
+  /* Checkatrade score widget (hero). Its text fallback auto-hides once the widget renders on the
+     approved live domain. The reviews carousel below is hand-maintained from the Checkatrade profile. */
+  .ca-score-widget iframe { max-width: 100%; border: 0; display: block; }
   .ca-score:has(.ca-score-widget > :not(script)) .ca-score-fallback { display: none; }
 
   /* Image treatment layer */
@@ -495,7 +495,7 @@
              class="ca-score-fallback group inline-flex items-center gap-3.5 rounded-sm border border-white/15 bg-white/[0.05] backdrop-blur-md px-4 py-3 hover:border-copper/60 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety">
             <span class="text-safety text-base tracking-tight" aria-hidden="true">★★★★★</span>
             <span class="text-sm text-warmwhite/75 leading-tight">
-              <span class="font-display font-bold text-warmwhite">9.8&thinsp;/&thinsp;10</span> on Checkatrade
+              <span class="font-display font-bold text-warmwhite">30+ reviews</span> on Checkatrade
               <span class="block font-mono text-[0.6rem] tracking-[0.14em] uppercase text-warmwhite/45 mt-0.5">Verified customer reviews</span>
             </span>
             <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" class="text-copper-soft transition-transform duration-300 ease-out group-hover:translate-x-1"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -788,49 +788,61 @@
       </div>
     </div>
 
-    <!-- Checkatrade reviews widget. Renders on the approved live domain; the carousel below is the fallback. -->
-    <div class="ca-reviews-widget">
-      <script>window._checkatradeConfig = { "companyId": 1135999, "uniqueName": "WyethRoofing", "theme": "white" };</script>
-      <script src="https://www.checkatrade.com/static/js/widget.js"></script>
+    <!-- Real Checkatrade reviews, transcribed from the Wyeth Roofing profile (checkatrade.com/trades/WyethRoofing).
+         Trimmed for length only; wording unchanged. Refresh periodically or add newer ones. -->
+    <div class="carousel mt-11 flex gap-5 overflow-x-auto pb-2 reveal" id="reviews">
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Prompt, courteous and professional</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "We had work done on our roof and guttering, done promptly and professionally. The team arrived early and, despite poor weather, had all the work completed well inside a day. Jack talked me through what was going on and was courteous throughout, and they left the place in a good state afterwards. Would recommend gladly."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; GU21</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Excellent work</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "Replaced flat roof, excellent work from Jack. All works completed as expected, to time and price. Courteous, tidy and timely. Would highly recommend."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; RG41</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Various roofing work carried out</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "Chimney work done, some pointing and new flaunch. Lead work in the chimney back gutter needed replacing and a new one was made from one piece and welded. 3 bottom verges and 1 end ridge tile fixed. Gutters cleaned as well. All work was explained and carried out in a very professional manner. Pricing was very reasonable and the guys were polite and tidy."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; RG12</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Efficient and tidy</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "The two Jacks were very professional and responded quickly with a competitive quote for installing a roof window and replacing ridge and gulley tiles. Arrived on time with all materials and finished the job quicker than anticipated."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; SL2</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Ridge tiles fixed and partially replaced</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "Excellent communication right from the off. Jack came over to take photos and inspect the roof. His quote was very competitive and he gave multiple options for the type of work we could have done. On the day he was prompt and carried out the job very quickly and to a great standard. Also made an effort to tidy up the driveway afterwards. Strongly recommended."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; GU15</figcaption>
+      </figure>
+      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
+        <div class="text-safety tracking-tight" aria-label="Rated 10 out of 10 on Checkatrade">★★★★★</div>
+        <p class="mt-3 font-display font-bold tracking-tight text-warmwhite">Emergency work carried out quickly</p>
+        <blockquote class="mt-2 text-warmwhite/80 text-[0.97rem] leading-relaxed">
+          "Jack was very prompt in his response and sorted out the roof problem quickly. Would recommend his services and will look to use him again in the future."
+        </blockquote>
+        <figcaption class="mt-auto pt-6 font-mono text-xs tracking-widest text-steel">VERIFIED CHECKATRADE REVIEW &middot; ANTHONY S. &middot; RG2</figcaption>
+      </figure>
     </div>
 
-    <div class="ca-reviews-fallback carousel mt-11 flex gap-5 overflow-x-auto pb-2 reveal" id="reviews">
-      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
-        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
-          "Re-roofed the whole house in four days. Scaffold up when they said, gone when they
-          said, and the drive was swept every evening. Faultless."
-        </blockquote>
-        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">JOHN D. · WOKINGHAM</figcaption>
-      </figure>
-      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
-        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
-          "Chimney was leaking for years and two other firms couldn't sort it. Wyeth found the
-          real problem in ten minutes and fixed it properly."
-        </blockquote>
-        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">S. PATEL · BRACKNELL</figcaption>
-      </figure>
-      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
-        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
-          "Listed cottage, so we were nervous. The lead detailing is beautiful and the
-          conservation officer had no comments at all. Highly recommend."
-        </blockquote>
-        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">M. ELLIS · SONNING</figcaption>
-      </figure>
-      <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7">
-        <div class="text-safety tracking-tight" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="mt-4 text-warmwhite/85 text-[1.02rem]">
-          "Quoted quickly, turned up on time, tidied up after themselves. The flat roof on our
-          unit hasn't leaked once since. Would use again."
-        </blockquote>
-        <figcaption class="mt-5 font-mono text-xs tracking-widest text-steel">R. CLARKE · READING</figcaption>
-      </figure>
-    </div>
-
-    <a href="https://www.checkatrade.com/trades/wyethroofing" target="_blank" rel="noopener" class="link-arrow mt-8 !text-copper-soft">
-      Read every review on Checkatrade
+    <a href="https://www.checkatrade.com/trades/WyethRoofing" target="_blank" rel="noopener" class="link-arrow mt-8 !text-copper-soft">
+      Read all 32 reviews on Checkatrade
       <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
