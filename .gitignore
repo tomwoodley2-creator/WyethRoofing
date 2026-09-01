@@ -7,6 +7,10 @@ tailwindcss.exe
 # Reference material (not part of the deliverable)
 keayroofingservices.co.uk_.png
 
+# Source photo folders. Optimised versions used by the site live in assets/ and ARE tracked.
+Gallery/
+Signatures/
+
 # Service-card design exports (~24 MB of source PNGs). The cropped, optimised
 # versions actually used by the site live in assets/services/*.jpg and ARE tracked.
 assets/What we do/
