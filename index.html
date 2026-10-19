@@ -116,17 +116,14 @@
   .ca-score:has(.ca-score-widget > :not(script)) .ca-score-fallback { display: none; }
   .ca-review:has(.ca-review-widget > :not(script)) .ca-review-fallback { display: none; }
 
-  /* Google review badge (hero). QR only on wider screens: a phone visitor can't scan their own screen. */
-  .g-review-qr {
-    display: none; width: 3.25rem; height: 3.25rem; padding: 0.2rem;
-    background: #FFFFFF; border-radius: 2px; image-rendering: pixelated;
-  }
-  .g-review-scan { display: none; }
+  /* Google review badge (hero). "Click" on wider screens, "Tap" on phones. */
+  .g-review-g { flex-shrink: 0; }
+  .g-review-click { display: none; }
   .hero-reviews .ca-score { display: flex; }
   @media (min-width: 1024px) { .hero-reviews { width: 46rem; } }  /* let both badges sit on one line past the copy column */
   @media (min-width: 768px) {
-    .g-review-qr, .g-review-scan { display: inline-block; }
-    .g-review-g, .g-review-tap { display: none; }
+    .g-review-click { display: inline; }
+    .g-review-tap { display: none; }
   }
   .g-review:active { transform: translateY(1px); }
 
@@ -518,14 +515,13 @@
           </a>
         </div>
 
-        <!-- Google: links to the "write a review" page; the QR (same link) shows on wider screens for desktop visitors to scan with a phone. -->
+        <!-- Google: links to the "write a review" page. -->
         <a href="https://g.page/r/CVaI-QyK63T1EAI/review" target="_blank" rel="noopener"
            class="g-review group inline-flex items-center gap-3.5 rounded-sm border border-white/15 bg-white/[0.05] backdrop-blur-md px-4 py-3 hover:border-copper/60 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety">
-          <img src="/assets/google-review-qr.png" width="132" height="132" alt="" class="g-review-qr" loading="lazy" />
-          <svg class="g-review-g" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+          <svg class="g-review-g" width="24" height="24" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
           <span class="text-sm text-warmwhite/75 leading-tight">
             <span class="font-display font-bold text-warmwhite">Review us on Google</span>
-            <span class="block font-mono text-[0.6rem] tracking-[0.14em] uppercase text-warmwhite/45 mt-0.5"><span class="g-review-scan">Scan or click</span><span class="g-review-tap">Tap</span> to leave a review</span>
+            <span class="block font-mono text-[0.6rem] tracking-[0.14em] uppercase text-warmwhite/45 mt-0.5"><span class="g-review-click">Click</span><span class="g-review-tap">Tap</span> to leave a review</span>
           </span>
           <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" class="text-copper-soft transition-transform duration-300 ease-out group-hover:translate-x-1"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
