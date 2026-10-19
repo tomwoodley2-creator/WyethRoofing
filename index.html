@@ -114,6 +114,7 @@
      approved live domain. The reviews carousel below is hand-maintained from the Checkatrade profile. */
   .ca-score-widget iframe { max-width: 100%; border: 0; display: block; }
   .ca-score:has(.ca-score-widget > :not(script)) .ca-score-fallback { display: none; }
+  .ca-review:has(.ca-review-widget > :not(script)) .ca-review-fallback { display: none; }
 
   /* Google review badge (hero). QR only on wider screens: a phone visitor can't scan their own screen. */
   .g-review-qr {
@@ -289,7 +290,7 @@
     }
   ],
   "sameAs": [
-    "https://www.checkatrade.com/trades/wyethroofing"
+    "https://www.checkatrade.com/trades/WyethRoofingLtd"
   ]
 }
 </script>
@@ -506,7 +507,7 @@
         <!-- Checkatrade: live score widget mounts here on the approved domain; link is the fallback. -->
         <div class="ca-score">
           <span class="ca-score-widget"><script src="https://www.checkatrade.com/static/js/reviews-score-widget.js" data-company-id="1135999"></script></span>
-          <a href="https://www.checkatrade.com/trades/WyethRoofing" target="_blank" rel="noopener"
+          <a href="https://www.checkatrade.com/trades/WyethRoofingLtd" target="_blank" rel="noopener"
              class="ca-score-fallback group inline-flex items-center gap-3.5 rounded-sm border border-white/15 bg-white/[0.05] backdrop-blur-md px-4 py-3 hover:border-copper/60 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-safety">
             <span class="text-safety text-base tracking-tight" aria-hidden="true">★★★★★</span>
             <span class="text-sm text-warmwhite/75 leading-tight">
@@ -816,7 +817,7 @@
       </div>
     </div>
 
-    <!-- Real Checkatrade reviews, transcribed from the Wyeth Roofing profile (checkatrade.com/trades/WyethRoofing).
+    <!-- Real Checkatrade reviews, transcribed from the Wyeth Roofing profile (checkatrade.com/trades/WyethRoofingLtd).
          Trimmed for length only; wording unchanged. Refresh periodically or add newer ones. -->
     <div class="carousel mt-11 flex gap-5 overflow-x-auto pb-2 reveal" id="reviews">
       <figure class="min-w-[85%] sm:min-w-[420px] bg-obsidian/60 border border-white/8 rounded-sm p-7 flex flex-col">
@@ -869,10 +870,20 @@
       </figure>
     </div>
 
-    <a href="https://www.checkatrade.com/trades/WyethRoofing" target="_blank" rel="noopener" class="link-arrow mt-8 !text-copper-soft">
-      Read all 32 reviews on Checkatrade
-      <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="mt-8 flex flex-wrap items-center gap-x-10 gap-y-5">
+      <a href="https://www.checkatrade.com/trades/WyethRoofingLtd" target="_blank" rel="noopener" class="link-arrow !text-copper-soft">
+        Read all 32 reviews on Checkatrade
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <!-- Checkatrade "review us" widget (renders on the approved live domain only); the link is the fallback and hides once it mounts. -->
+      <div class="ca-review">
+        <span class="ca-review-widget"><script>window._checkatradeConfig = {"companyId":1135999,"uniqueName":"WyethRoofingLtd","theme":"red"};</script><script src="https://www.checkatrade.com/static/js/widget.js"></script></span>
+        <a href="https://www.checkatrade.com/give-feedback/1092120" target="_blank" rel="noopener" class="ca-review-fallback link-arrow !text-copper-soft">
+          Leave us a Checkatrade review
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M1 5.5h12M8 1l4.5 4.5L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1141,7 +1152,7 @@
           <li><a href="tel:+447527783532" class="hover:text-copper transition-colors">07527 783532</a></li>
           <li><a href="mailto:info@wyethroofing.co.uk" class="hover:text-copper transition-colors">info@wyethroofing.co.uk</a></li>
           <li class="text-warmwhite/55">Berkshire, Hampshire &amp; Surrey</li>
-          <li><a href="https://www.checkatrade.com/trades/wyethroofing" target="_blank" rel="noopener" class="hover:text-copper transition-colors">Checkatrade profile →</a></li>
+          <li><a href="https://www.checkatrade.com/trades/WyethRoofingLtd" target="_blank" rel="noopener" class="hover:text-copper transition-colors">Checkatrade profile →</a></li>
         </ul>
       </div>
     </div>
